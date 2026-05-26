@@ -1,4 +1,4 @@
-# Phone Tunnel — one-shot Render deploy script.
+# Phone Tunnel - one-shot Render deploy script.
 #
 # Run this once. It will:
 #   1. Prompt for your Render API key (https://dashboard.render.com/u/settings#api-keys)
@@ -9,7 +9,7 @@
 #   6. Print the public URL you paste into the Phone Tunnel app
 #
 # Re-running creates a new service. If a service named "phonetunnel-relay"
-# already exists, this script will fail with a clear error — delete the old
+# already exists, this script will fail with a clear error - delete the old
 # one in the Render dashboard first.
 
 param(
@@ -19,7 +19,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Hardcoded — public, not a secret
+# Hardcoded - public, not a secret
 $CfAppId = "cc3c9f8241f98f8f8b02185632f3549c"
 $RepoUrl = "https://github.com/maninder0063/phonetunnel-relay"
 $Api = "https://api.render.com/v1"
@@ -118,7 +118,7 @@ $lastStatus = ""
 while ($true) {
     Start-Sleep -Seconds 15
     $elapsedSec = [int]((Get-Date) - $startedAt).TotalSeconds
-    if ($elapsedSec -gt 900) { Write-Warning "Build is taking longer than 15 min — check Render dashboard for issues."; break }
+    if ($elapsedSec -gt 900) { Write-Warning "Build is taking longer than 15 min - check Render dashboard for issues."; break }
 
     try {
         $deploys = Invoke-RestMethod -Method Get -Uri "$Api/services/$serviceId/deploys?limit=1" -Headers $headers
