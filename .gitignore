@@ -1,0 +1,20 @@
+# Build outputs
+build/
+.gradle/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local secrets (never commit env files)
+.env
+.env.local
+
+# Wrapper jar (we ship distributionUrl in properties — let Gradle download it)
+gradle/wrapper/gradle-wrapper.jar

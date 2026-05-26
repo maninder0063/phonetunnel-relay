@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: phonetunnel-relay
+    env: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: CF_APP_ID
+        sync: false
+      - key: CF_API_TOKEN
+        sync: false
